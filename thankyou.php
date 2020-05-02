@@ -5,10 +5,10 @@
 
     /**WebAppsの環境変数から、DB接続文字を取得する。※ソースが怪しいので今はコメントアウト */
     //変数の宣言
-    $connectstr_dbhost = ”;
-    $connectstr_dbname = ”;
-    $connectstr_dbusername = ”;
-    $connectstr_dbpassword = ”;
+    //$connectstr_dbhost = ”;
+    //$connectstr_dbname = ”;
+    //$connectstr_dbusername = ”;
+    //$connectstr_dbpassword = ”;
 
     //foreach ($_SERVER as $key => $value) {
     //    if (strpos($key, “MYSQLCONNSTR_localdb”) !== 0) {
@@ -55,10 +55,14 @@
          'password'  => $_['password'],
      ];
      
-     var_dump($db_settings);
+     //var_dump($db_settings);ダンプなのでコメントアウト（PW丸出しになっちゃう）
 
-    $connectstr_dbhost = $_['datasource'].':'.$_['port'];
-    $connectstr_dbname = $_['database'];
+    //$connectstr_dbhost = $_['datasource'].':'.$_['port'];
+    //$connectstr_dbname = $_['database'];
+    //$connectstr_dbusername = $_['userid'];
+    //$connectstr_dbpassword = $_['password'];
+    
+    $dsn = 'mysql:dbname='.$_['database'].';host='.$_['datasource'].';port='.$_['port'];
     $connectstr_dbusername = $_['userid'];
     $connectstr_dbpassword = $_['password'];
     /** ここまで */
@@ -70,7 +74,7 @@
 
     //DBへのINSERT
     //PDOを使ってDBに接続
-    $dbh = new PDO('mysql:host='.$connectstr_dbhost.';dbname='.$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword);
+    $dbh = new PDO($dsn, $connectstr_dbusername, $connectstr_dbpassword);
 //    $dbh = new PDO('mysql:host='.$connectstr_dbhost.';dbname='.$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword);
     //エラーがある場合に表示させるようにする
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
