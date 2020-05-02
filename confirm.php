@@ -1,3 +1,9 @@
+<?php
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $message = $_POST['message'];
+?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -20,28 +26,31 @@
         </header>
         <main>
             <section class="form-section">
-                <h2>お問合せフォーム（1/3）</h2>
+                <h2>お問合せ内容の確認（2/3）</h2>
                 <div class="form-container">
                     <form id="form">
                         <div class="form-group">
                             <label>氏名</label>
-                            <input type="text" name="name" class="form-item">
+                            <span class="confirm-item"><?php echo $name; ?></span>
+                            <input type="hidden" name="name" value="<?php echo $name; ?>">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-item">
+                            <span class="confirm-item"><?php echo $email; ?></span>
+                            <input type="hidden" name="email" value="<?php echo $email; ?>">
                         </div>
                         <div class="form-group">
                             <label>性別</label>
-                            男性：<input type="radio" name="gender" value="男性">
-                            女性：<input type="radio" name="gender" value="女性">
+                            <span class="confirm-item"><?php echo $gender; ?></span>
+                            <input type="hidden" name="gender" value="<?php echo $gender; ?>">
                         </div>
                         <div class="form-group">
                             <label>お問合せ内容</label>
-                            <textarea name="message" class="form-item"></textarea>
+                            <span class="confirm-item"><?php echo $message; ?></span>
+                            <input type="hidden" name="message" value="<?php echo $message; ?>">
                         </div>
                         <div class="form-group">
-                            <button type="submit" id="next">確認へ</button>
+                            <button type="submit" id="next">上記内容で問合せる</button>
                         </div>
                     </form>
                 </div>
@@ -52,12 +61,10 @@
         </footer>
         <script>
             var button = document.getElementById("next");
-            var form = document.getElementById("form");
             button.addEventListener("click",function(e){
                 e.preventDefault();
-                //form関連の記述
                 form.method = "post";
-                form.action = "confirm.php"
+                form.action = "thankyou.php"
                 form.submit();
             })
         </script>

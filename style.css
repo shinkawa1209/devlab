@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* background: url(./wall.jpg) center center/cover; */
+}
+
+/* navのスタイル */
+
+nav{
+    background: #333;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a{
+    display: block;
+    padding: 8px 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover{
+    background: #666;
+}
+
+/* headerのスタイル */
+
+header{
+    height: 200px;
+    background: url(./wall.jpg) center/cover;
+}
+
+#main-title{
+    margin: 0;
+    padding: 50px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+/* mainのスタイル */
+
+.form-section{
+    margin-bottom: 64px;
+}
+
+main h2 {
+    text-align: center;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+.form-container{
+    background: #eee;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+label{
+    display: inline-block;
+    width: 120px;
+}
+
+.form-group{
+    padding: 10px;
+}
+
+input[type='text']{
+    width: 180px;
+    height: 1.8em;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+
+textarea{
+    width: 180px;
+    vertical-align: top;
+    height: 5em;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+
+button{
+    margin-left: 125px;
+}
+
+/* footerのスタイル */
+
+footer{
+    background:#333;
+    color: #fff;
+    text-align: center;
+    padding: 32px 0;
+}
+
+/* レスポンシブ対応のための記述 */
+
+@media screen and (max-width:640px){
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    header{
+        display: none;
+    }
+
+    .form-container{
+        background: #fff;
+        width: 100%;
+    }
+
+    button{
+        border:solid 1px #ccc;
+    }
+
+    button:active{
+        background: #666;
+    }
+}
+
+/* confirm画面用の追加 */
+
+.confirm-item{
+    display: inline-block;
+    width: 180px;
+    vertical-align: top;
+}
+
+/* thankyou画面用の追加 */
+
+.thankyou-message{
+    text-align: center;
+}
